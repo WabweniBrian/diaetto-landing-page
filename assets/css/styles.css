@@ -1,0 +1,161 @@
+:root {
+  --primary-color: #23233c;
+  --secondary-color: #6cc57c;
+  --gray-color: #7f8da0;
+  --light-color: #f2f6ff;
+  --white-color: #fff;
+  --transition: all 0.3s ease-in-out;
+  --text-color: #424252;
+}
+
+/* General styles */
+* {
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+.border {
+  border: var(--border);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+*::selection {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+body {
+  font-family: "Questrial", sans-serif;
+  background-color: var(--light-color);
+}
+
+section,
+footer {
+  padding: 0 9%;
+  padding-top: 5rem;
+}
+
+.custom-btn {
+  text-transform: capitalize;
+  background: var(--primary-color);
+  color: var(--light-color);
+  transition: var(--transition);
+}
+
+.custom-btn:hover {
+  letter-spacing: 0.2rem;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  color: #23233c;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+  position: relative;
+  transition: var(--transition-all);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+/*------------------------------------------- Header section---------------------------------------------- */
+
+header .navbar-menu a.active,
+header .navbar-menu a:hover {
+  color: var(--secondary-color) !important;
+}
+
+header .navbar-menu a::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  bottom: 0;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+header .navbar-menu a.active::before,
+header .navbar-menu a:hover::before {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.fa-quote-right {
+  font-size: 10rem;
+  opacity: 0.1;
+}
+
+section.hero,
+.about-1,
+.about-2 {
+  background: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-size: 400px;
+}
+
+section.hero {
+  background-size: 600px;
+  background-position: -50%;
+  background-attachment: fixed;
+}
+
+.about-1 {
+  background-position: 140%;
+}
+
+.about-2 {
+  background-position: 150%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  section,
+  footer {
+    padding: 0 4%;
+    padding-top: 5rem;
+  }
+  header {
+    transition: var(--transition);
+  }
+
+  header.navbar.open {
+    background-color: #fff;
+    transition: var(--transition);
+  }
+}
+@media screen and (max-width: 640px) {
+  section,
+  footer {
+    text-align: center;
+  }
+
+  .get-app {
+    justify-content: center;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+}
